@@ -14,7 +14,6 @@ define([
             this.model.set({ svg: svg });
         },
         downloadSvg: function () {
-            console.log(this.model.get("svg"));
             var a = document.createElement("a");
             a.href = 'data:Application/octet-stream,' + encodeURIComponent(this.model.get("svgText"));
             a.download = "youFile.svg";
