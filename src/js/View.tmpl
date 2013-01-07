@@ -1,0 +1,13 @@
+define([
+    "text!html/View.html"
+], function (tmpl) {
+    return Backbone.View.extend({
+        initialize: function () {
+            Backbone.View.prototype.initialize.apply(this, arguments);
+            this.render();
+        },
+        render: function () {
+            this.el.innerHTML = tmpl;
+        }
+    });
+});
