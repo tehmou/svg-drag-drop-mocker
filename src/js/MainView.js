@@ -30,7 +30,7 @@ define([
             e.preventDefault();
             var files = e.target.files || e.dataTransfer.files;
             if (files.length !== 1) {
-                alert("Please drag only one SVG file.")
+                alert("Please drag only one SVG file.");
             }
             var file = files[0];
             var reader = new FileReader();

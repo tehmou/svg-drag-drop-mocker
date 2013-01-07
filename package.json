@@ -1,6 +1,6 @@
 {
     "author": "Timo Tuominen",
-    "name": "Single-Page Backbone",
+    "name": "single-page-backbone",
     "description": "Custom template project for a single-page Backbone web application",
     "version": "0.0.1",
     "engines": {

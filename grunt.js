@@ -15,7 +15,10 @@ module.exports = function(grunt) {
             var src = path.join(SRC_DIR, assetFolder);
             var dest = path.join(BUILD_DIR, assetFolder) + path.sep;
             if (fs.readdirSync(src).length > 0) {
+                console.log("Copying " + src);
                 copyConfig[dest] = path.join(src, '**');
+            } else {
+                console.log("Not copying " + src + " because it is empty");
             }
         });
         copyConfig[path.join(BUILD_DIR, 'lib', 'require.js')] = path.join(SRC_DIR, 'lib', 'require.js');
@@ -55,10 +58,7 @@ module.exports = function(grunt) {
         },
         mincss: createMinCssConfig(),
         copy: {
-            assets: {
-                options: {
-                    excludeEmpty: true
-                },
+            all: {
                 files: createCopyConfig()
             }
         }

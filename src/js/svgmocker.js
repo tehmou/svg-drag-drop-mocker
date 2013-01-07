@@ -73,7 +73,7 @@ define(function () {
         // Take all of the characters until the first underscore.
         // Illustrator has a habit of naming groups of duplicate name
         // group_1_, group_2_ and so on.
-        return /^([^_]*)/.exec(id)[1];
+        return (/^([^_]*)/).exec(id)[1];
     }
 
     function findAndCreateSlides (svg, nameRegEx) {
