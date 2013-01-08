@@ -1,5 +1,6 @@
 .DS_Store
 .idea
 src/.sass-cache
+src/stylesheets
 build
 node_modules
