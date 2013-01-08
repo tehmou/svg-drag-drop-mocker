@@ -80,6 +80,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-mincss');
+    grunt.loadNpmTasks('grunt-compass');
 
     grunt.loadTasks('tasks');
 
