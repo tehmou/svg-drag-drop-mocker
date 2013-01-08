@@ -59,6 +59,7 @@ define([
 
             var fileInfo = new FileInfo({ model: this.model.get("svgFileInfo") });
             fileInfo.render();
+            this.fileInfo = fileInfo;
             $("#file-info", this.el).append(fileInfo.el);
         }
     });
