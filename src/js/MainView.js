@@ -1,7 +1,8 @@
 define([
     "backbone",
-    "js/Screens"
-], function (Backbone, Screens) {
+    "js/Screens",
+    "js/views/FileInfo"
+], function (Backbone, Screens, FileInfo) {
     return Backbone.View.extend({
         initialize: function () {
             Backbone.View.prototype.initialize.apply(this, arguments);
@@ -15,7 +16,12 @@ define([
             this.model.set({ svg: svg });
         },
         svgFileChange: function () {
-            $("#svg-file-name", this.el).html(this.model.get("svgFile").name);
+            var svgFile = this.model.get("svgFile");
+            this.model.get("svgFileInfo").set({
+                name: svgFile.name,
+                size: svgFile.size
+            });
+            this.fileInfo.render();
         },
         downloadSvg: function () {
             var a = document.createElement("a");
@@ -50,6 +56,10 @@ define([
             $("#viewSvg", this.el).click(this.viewSvg);
             $("#downloadSvg", this.el).click(this.downloadSvg);
             $("#playSvg", this.el).click(this.playSvg);
+
+            var fileInfo = new FileInfo({ model: this.model.get("svgFileInfo") });
+            fileInfo.render();
+            $("#file-info", this.el).append(fileInfo.el);
         }
     });
 });

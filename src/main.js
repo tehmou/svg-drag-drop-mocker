@@ -3,8 +3,8 @@ requirejs.config({
         "underscore": {
             exports: "_"
         },
-        "mustache": {
-            exports: "Mustache"
+        "handlebars": {
+            exports: "Handlebars"
         },
         "jquery": {
             exports: "$"
@@ -20,8 +20,8 @@ requirejs.config({
     },
     paths: {
         "underscore": "lib/underscore",
-        "mustache": "lib/mustache",
-        "jquery": "lib/jquery-1.8.3.min",
+        "handlebars": "lib/handlebars",
+        "jquery": "lib/jquery",
         "backbone": "lib/backbone",
         "backbone.layoutmanager": "lib/backbone.layoutmanager",
         "text": "lib/text"
@@ -29,7 +29,12 @@ requirejs.config({
 });
 
 require(["text!data/screens.svg", "js/svgmocker", "js/MainView"], function (svgText, svgmocker, MainView) {
-    var model = new Backbone.Model();
+    var model = new Backbone.Model({
+        svgFileInfo: new Backbone.Model({
+            name: "screens.svg",
+            size: "5245"
+        })
+    });
     new MainView({
         el: document.body,
         model: model
