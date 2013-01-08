@@ -71,17 +71,22 @@ body {
 }
 
 /* line 14, ../sass/screen.sass */
+h1 {
+  font-size: 20px;
+}
+
+/* line 17, ../sass/screen.sass */
 #app {
   width: 1024px;
   margin: 0 auto;
 }
 
-/* line 18, ../sass/screen.sass */
+/* line 21, ../sass/screen.sass */
 #controls {
   padding: 30px;
 }
 
-/* line 21, ../sass/screen.sass */
+/* line 24, ../sass/screen.sass */
 .big-button {
   display: inline-block;
   background: #444444;
@@ -95,7 +100,7 @@ body {
   border-radius: 5px;
   padding: 20px 30px;
 }
-/* line 29, ../sass/screen.sass */
+/* line 32, ../sass/screen.sass */
 .big-button:hover {
   background: black;
 }

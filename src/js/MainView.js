@@ -7,11 +7,15 @@ define([
             Backbone.View.prototype.initialize.apply(this, arguments);
             _.bindAll(this);
             this.model.on("change:svgText", this.svgTextChange);
+            this.model.on("change:svgFile", this.svgFileChange);
         },
         svgTextChange: function () {
             var doc = new DOMParser().parseFromString(this.model.get("svgText"), "application/xml");
             var svg = document.importNode(doc.documentElement, true);
             this.model.set({ svg: svg });
+        },
+        svgFileChange: function () {
+            $("#svg-file-name", this.el).html(this.model.get("svgFile").name);
         },
         downloadSvg: function () {
             var a = document.createElement("a");
@@ -34,7 +38,10 @@ define([
             var file = files[0];
             var reader = new FileReader();
             reader.onload = _.bind(function () {
-                this.model.set({ svgText: reader.result });
+                this.model.set({
+                    svgFile: file,
+                    svgText: reader.result
+                });
             }, this);
             reader.readAsText(file);
         },
