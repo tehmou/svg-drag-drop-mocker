@@ -69,3 +69,33 @@ body {
   font-size: 10px;
   line-height: 1.4;
 }
+
+/* line 14, ../sass/screen.sass */
+#app {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+/* line 18, ../sass/screen.sass */
+#controls {
+  padding: 30px;
+}
+
+/* line 21, ../sass/screen.sass */
+.big-button {
+  display: inline-block;
+  background: #444444;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 20px 30px;
+}
+/* line 29, ../sass/screen.sass */
+.big-button:hover {
+  background: black;
+}

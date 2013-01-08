@@ -1,14 +1,18 @@
 module.exports = function (grunt) {
     var spawn = require('child_process').spawn;
 
-    grunt.registerTask('ghpages', function () {
+    grunt.registerMultiTask('ghpages', 'Update gh-pages on for github repository', function () {
+        var repository = this.data.repository;
+        var commitMessage = this.data.commitMessage || 'Overwriting commit';
+        var branch = this.data.branch || 'gh-pages';
+
         var done = this.async();
         var gitCommands = [
             ['init'],
-            ['checkout', '-b', 'gh-pages'],
+            ['checkout', '-b', branch],
             ['add', '.'],
-            ['commit', '-m', 'Overwriting commit'],
-            ['remote', 'add', 'origin', 'git@github.com:tehmou/svg-drag-drop-mocker.git'],
+            ['commit', '-m', commitMessage],
+            ['remote', 'add', 'origin', repository],
             ['push', '-f', 'origin', 'gh-pages']
         ];
 

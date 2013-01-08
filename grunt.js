@@ -58,6 +58,11 @@ module.exports = function(grunt) {
             all: {
                 files: createCopyConfig()
             }
+        },
+        ghpages: {
+            all: {
+                repository: 'git@github.com:tehmou/svg-drag-drop-mocker.git'
+            }
         }
     });
 
@@ -71,5 +76,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', 'lint');
     grunt.registerTask('build-dev', 'lint clean requirejs copy');
     grunt.registerTask('build-min', ['build-dev', 'min', 'mincss']);
+    grunt.registerTask('deploy-ghpages', ['build-min', 'ghpages']);
 
 };
